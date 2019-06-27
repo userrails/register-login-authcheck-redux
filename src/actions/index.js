@@ -1,11 +1,11 @@
-import { LOGIN_USER } from './types';
+import { REGISTER_USER } from './types';
 import axios from 'axios';
 import { push } from 'connected-react-router/immutable';
 
 const apiUrl = "http://localhost:5000";
 
-const loginUser = userObj => ({
-  type: LOGIN_USER,
+const registerUser = userObj => ({
+  type: REGISTER_USER,
   payload: userObj
 })
 
@@ -14,7 +14,7 @@ export const userPostFetch = (user) => {
     return axios.post(apiUrl + '/registrations', { user })
       .then(response => {
         localStorage.setItem("token", response.data.user.token);
-        dispatch(loginUser(response.data.user));
+        dispatch(registerUser(response.data.user));
         dispatch(push("/form"))
       })
       .catch(error => {
