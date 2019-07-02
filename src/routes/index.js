@@ -6,6 +6,7 @@ import Contact from '.././components/pages/Contact';
 import About from '.././components/pages/About';
 import Signup from '../components/users/Register';
 import Login from '../components/users/Login';
+import Profile from '../components/users/Profile';
 
 export default () => {
   return (
@@ -16,6 +17,7 @@ export default () => {
           <Route path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Signup} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </div>
   )

@@ -15,6 +15,7 @@ class NavbarHeader extends Component {
           <Link to="/">Home</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/about">About</Link>
+          <Link to="/profile">Profile</Link>
           <Link to="#" onClick={this.handleLogout}>Logout</Link>
         </div>
       )
