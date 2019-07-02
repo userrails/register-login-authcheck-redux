@@ -15,7 +15,7 @@ export const userPostFetch = (user) => {
       .then(response => {
         localStorage.setItem("token", response.data.user.token);
         dispatch(registerUser(response.data.user));
-        dispatch(push("/form"))
+        dispatch(push("/"))
       })
       .catch(error => {
         dispatch({error: error, type: 'ERROR_MESSAGE'})
