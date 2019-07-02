@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {userPostFetch} from '../../actions/index';
+import {userPostFetch} from '../../actions/RegisterAction';
 import fakeAuth from '../../containers/fakeAuth';
 import {push} from 'connected-react-router';
 
