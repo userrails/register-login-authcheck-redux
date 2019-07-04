@@ -7,6 +7,7 @@ import About from '.././components/pages/About';
 import Signup from '../components/users/Register';
 import Login from '../components/users/Login';
 import Profile from '../components/users/Profile';
+import Articles from '../components/articles/List';
 
 export default () => {
   return (
@@ -18,6 +19,7 @@ export default () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Signup} />
           <Route path="/profile" component={Profile} />
+          <Route exact path="/articles" component={Articles} />
         </Switch>
       </div>
   )
