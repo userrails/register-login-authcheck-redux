@@ -5,7 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router'
-import configureStore, { history } from './configureStore'
+import configureStore, { history, persistor } from './configureStore'
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 import {AppContainer} from 'react-hot-loader';
 
@@ -16,7 +18,9 @@ const render = () => {
     <AppContainer>
       <Provider store={store}>
         <ConnectedRouter history={history}> { /* place ConnectedRouter under Provider */}
-          <App />
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
         </ConnectedRouter>
       </Provider>
     </AppContainer>,

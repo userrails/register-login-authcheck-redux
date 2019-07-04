@@ -1,9 +1,12 @@
 import createBrowserHistory from 'history/createBrowserHistory';
 import { applyMiddleware, createStore } from 'redux'
 import { routerMiddleware } from 'connected-react-router'
-import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+import rootReducer from './reducers'
 
 export const history = createBrowserHistory();
 
@@ -11,9 +14,16 @@ history.listen(() => {
   console.log('OK');
 });
 
-export default function configureStore(preloadedState) {
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer(history));
+
+function configureStore(preloadedState) {
   const store = createStore(
-    rootReducer(history), // root reducer with router state
+    persistedReducer, // root reducer with router state
     preloadedState,
     composeWithDevTools(
       applyMiddleware(
@@ -21,7 +31,13 @@ export default function configureStore(preloadedState) {
         routerMiddleware(history),
       ),
     ),
-  )
+  );
 
   return store
 }
+
+let store = configureStore();
+
+export const persistor = persistStore(store);
+
+export default configureStore;
