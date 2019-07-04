@@ -1,24 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {fetchAllArticlesFunction} from '../../actions/ArticleAction';
 import Article from '../../components/articles/Article';
 
-function ArticleList({ articles }) {
-  if(!articles.length) {
-    return (
+class ArticleList extends Component {
+  render () {
+    if (!this.props.articles.length) {
+      return (
         <div>
           There are no any articles found yet!
         </div>
       )
+    }
+    return (
+      <div>
+        {this.props.articles.map(article => {
+          return (
+            <Article article={article} key={article.id} />
+          );
+        })}
+      </div>
+    )
   }
-  return (
-    <div>
-      {articles.map(article => {
-        return (
-          <Article article={article} key={article.id} />
-        );
-      })}
-    </div>
-  )
 }
 
 const mapStateToProps = state => {
@@ -27,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ArticleList);
+export default connect(mapStateToProps, fetchAllArticlesFunction)(ArticleList);

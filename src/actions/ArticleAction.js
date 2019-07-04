@@ -4,7 +4,7 @@ import axios from 'axios';
 const apiUrl = "http://localhost:5000";
 
 // action
-export const fetchArticlesAction = (articles) => {
+export const fetchAllArticlesAction = (articles) => {
   return {
     type: FETCH_ARTICLES,
     articles
@@ -16,7 +16,7 @@ export const fetchAllArticlesFunction = () => {
   return (dispatch) => {
     return axios.get(apiUrl + '/articles')
       .then(response => {
-        dispatch(fetchArticles(response.data))
+        dispatch(fetchAllArticlesAction(response.data))
       })
       .catch(error => {
         throw(error);
