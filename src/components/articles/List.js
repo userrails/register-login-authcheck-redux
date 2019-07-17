@@ -26,8 +26,8 @@ class ArticleList extends Component {
 
 const mapStateToProps = state => {
   return {
-    articles: state.articleReducer
+    articles: state.articleReducer.articles
   }
 }
 
-export default connect(mapStateToProps, fetchAllArticlesFunction)(ArticleList);
+export default connect(mapStateToProps, {fetchAllArticlesFunction})(ArticleList);

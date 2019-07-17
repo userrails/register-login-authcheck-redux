@@ -7,7 +7,7 @@ const apiUrl = "http://localhost:5000";
 export const fetchAllArticlesAction = (articles) => {
   return {
     type: FETCH_ARTICLES,
-    articles
+    payload: articles
   }
 }
 
