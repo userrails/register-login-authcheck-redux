@@ -36,8 +36,8 @@ function configureStore(preloadedState) {
   return store
 }
 
-let store = configureStore();
+export const store = configureStore();
 
 export const persistor = persistStore(store);
 
-export default configureStore;
+// export default configureStore;
