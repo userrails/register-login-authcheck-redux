@@ -13,8 +13,12 @@ export const userPostFetch = (user) => {
   return (dispatch) => {
     return axios.post(apiUrl + '/registrations', { user })
       .then(response => {
-        localStorage.setItem("token", response.data.user.token);
-        dispatch(registerUser(response.data.user));
+        // check if token received blank then don't dispatch action
+        if (response.data.user.token) {
+          // can also shift to persist
+          localStorage.setItem("token", response.data.user.token);
+          dispatch(registerUser(response.data.user));
+        }
         dispatch(push("/"))
       })
       .catch(error => {
