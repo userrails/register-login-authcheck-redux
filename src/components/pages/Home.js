@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import fakeAuth from '../../containers/fakeAuth';
 import { connect } from "react-redux";
 
 class Home extends Component {

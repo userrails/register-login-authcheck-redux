@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {LoginFunction} from '../../actions/LoginAction';
-import fakeAuth from '../../containers/fakeAuth';
-import {push} from 'connected-react-router';
+// import fakeAuth from '../../containers/fakeAuth';
+// import {push} from 'connected-react-router';
 
 class Login extends Component {
   constructor(props) {

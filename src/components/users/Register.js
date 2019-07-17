@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {userPostFetch} from '../../actions/RegisterAction';
-import fakeAuth from '../../containers/fakeAuth';
-import {push} from 'connected-react-router';
+// import fakeAuth from '../../containers/fakeAuth';
+// import {push} from 'connected-react-router';
 
 class Signup extends Component {
   constructor(props) {
