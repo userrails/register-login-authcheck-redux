@@ -10,7 +10,7 @@ class Login extends Component {
 
     this.state = {
       // by default the value of redirectToReferrer is false
-      redirectToReferrer: false,
+      // redirectToReferrer: false,
       email: '',
       password: ''
     }
@@ -29,11 +29,11 @@ class Login extends Component {
     // In this case before userPostFetch action calls the fakeAuth.authenticate() fun calls
     // which makes the value of isAuthenticated = true and here the value of redirectToReferrer
     // also sets to true and state is updated with this value
-    fakeAuth.authenticate(() => {
-      this.setState(() => ({
-        redirectToReferrer: true
-      }))
-    })
+    // fakeAuth.authenticate(() => {
+    //   this.setState(() => ({
+    //     redirectToReferrer: true
+    //   }))
+    // })
 
     // this logic may need to be refactored
     // we are forcefully making isAuthenticate=true by calling authenticate() method
@@ -48,16 +48,16 @@ class Login extends Component {
 
   render () {
     // const {from} = this.props.location.state || { from: {path: '/form' }}
-    const {redirectToReferrer} = this.state.redirectToReferrer
+    // const {redirectToReferrer} = this.state.redirectToReferrer
 
     // if redirectToReferrer value is true then redirect to what set inside from
     // otherwise display the form content
-    console.log('trigger121200', redirectToReferrer);
-    if (redirectToReferrer === true) {
-    this.props.changePage();
-      console.log('trigger121200');
-      push('/');
-    }
+    // console.log('trigger121200', redirectToReferrer);
+    // if (redirectToReferrer === true) {
+    // this.props.changePage();
+    //   console.log('trigger121200');
+    //   push('/');
+    // }
 
     return (
         <form onSubmit={this.handleSubmit}>
