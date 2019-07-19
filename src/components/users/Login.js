@@ -63,7 +63,7 @@ class Login extends Component {
         <form onSubmit={this.handleSubmit}>
           <h1>Sign in</h1>
           <label>Email</label>
-          <input 
+          <input
             name='email'
             placeholder="Email"
             value={this.state.email}
