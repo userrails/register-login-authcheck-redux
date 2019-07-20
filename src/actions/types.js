@@ -3,3 +3,4 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
+export const CLEAR_ERROR = 'CLEAR_ERROR';

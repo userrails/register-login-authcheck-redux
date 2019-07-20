@@ -1,4 +1,4 @@
-import { LOGIN_USER, ERROR_MESSAGE } from './types';
+import { LOGIN_USER, ERROR_MESSAGE, CLEAR_ERROR } from './types';
 import axios from 'axios';
 import { push } from 'connected-react-router/immutable';
 
@@ -14,19 +14,20 @@ const errorMessage = error => ({
   payload: error
 })
 
+const clearError = () => ({
+  type: CLEAR_ERROR
+})
+
 export const LoginFunction = (user) => {
   return (dispatch) => {
     return axios.post(apiUrl + '/sessions', { user })
       .then(response => {
-        // check if token received blank then don't dispatch action
         if (response.data.user && response.data.user.token) {
-          // can also shift to persist
-          console.log("---------", response.data.user);
+          dispatch(clearError());
           localStorage.setItem("token", response.data.user.token);
           dispatch(loginUser(response.data.user));
           dispatch(push("/"))
         } else {
-          console.log("--******-----", response.data.errors);
           dispatch(errorMessage(response.data.errors));
           dispatch(push("/login"))
         }
