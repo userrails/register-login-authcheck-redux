@@ -8,7 +8,6 @@ import FetchError from './components/FetchError';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.isError = props.errors && props.errors.length !== 0
   }
 
   render () {
@@ -18,8 +17,7 @@ class App extends Component {
           <NavbarHeader />
         </div>
         <header className="App-header">
-          { this.isError ? <FetchError errors={this.props.errors} /> : ''}
-          
+          { (this.props.errors && this.props.errors.length) ? <FetchError errors={this.props.errors} /> : ''}
           <div>
             <Routes />
           </div>
