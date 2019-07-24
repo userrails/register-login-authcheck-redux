@@ -4,6 +4,10 @@ import {fetchAllArticlesFunction} from '../../actions/ArticleAction';
 import Article from '../../components/articles/Article';
 
 class ArticleList extends Component {
+  componentDidMount() {
+    this.props.fetchAllArticlesFunction();
+  }
+
   render () {
     if (!this.props.articles.length) {
       return (
